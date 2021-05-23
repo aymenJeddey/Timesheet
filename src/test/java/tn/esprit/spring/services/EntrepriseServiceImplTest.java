@@ -10,7 +10,7 @@ public class EntrepriseServiceImplTest {
 	EntrepriseServiceImpl entrepriseServiceImpl = new EntrepriseServiceImpl();
 
 	@Test
-	public void testCalculerSom() {
+	public void testCalculNombreDepartement() {
 	assertNotEquals(0, entrepriseServiceImpl.calculNombreDepartementByEntreprise(0));
 	}
 

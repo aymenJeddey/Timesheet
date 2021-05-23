@@ -57,7 +57,10 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 
 	public int calculNombreDepartementByEntreprise(int entrepriseId) {
 		Entreprise entrepriseManagedEntity = entrepriseRepoistory.findById(entrepriseId).get();
-		return entrepriseManagedEntity.getDepartements().size();
+		if (entrepriseManagedEntity == null || entrepriseManagedEntity.getDepartements() == null)
+			return 0;
+		else
+			return entrepriseManagedEntity.getDepartements().size();
 	}
 
 	@Transactional
