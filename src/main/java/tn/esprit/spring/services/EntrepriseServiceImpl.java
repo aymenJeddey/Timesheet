@@ -3,6 +3,7 @@ package tn.esprit.spring.services;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,6 +16,8 @@ import tn.esprit.spring.repository.EntrepriseRepository;
 
 @Service
 public class EntrepriseServiceImpl implements IEntrepriseService {
+
+	private static final Logger logger = Logger.getLogger(EntrepriseServiceImpl.class);
 
 	@Autowired
 	EntrepriseRepository entrepriseRepoistory;
@@ -55,12 +58,19 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 		return depNames;
 	}
 
-	public int calculNombreDepartementByEntreprise(int entrepriseId) {
-		Entreprise entrepriseManagedEntity = entrepriseRepoistory.findById(entrepriseId).get();
-		if (entrepriseManagedEntity == null || entrepriseManagedEntity.getDepartements() == null)
-			return 0;
-		else
-			return entrepriseManagedEntity.getDepartements().size();
+	public int calculNombreDepartementByEntreprise(Entreprise entreprise) {
+		int res = 0;
+		try {
+			// logger.info("entreprise : " + entreprise.getName());
+			if (entreprise == null || entreprise.getDepartements() == null)
+				res = 0;
+			else
+				res = entreprise.getDepartements().size();
+		} catch (Exception e) {
+			logger.error("Erreur : " + e);
+		}
+		return res;
+
 	}
 
 	@Transactional

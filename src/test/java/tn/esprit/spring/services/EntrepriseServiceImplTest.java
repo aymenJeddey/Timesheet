@@ -6,12 +6,11 @@ import org.junit.Test;
 
 public class EntrepriseServiceImplTest {
 
-	
 	EntrepriseServiceImpl entrepriseServiceImpl = new EntrepriseServiceImpl();
 
 	@Test
 	public void testCalculNombreDepartement() {
-	assertNotEquals(0, entrepriseServiceImpl.calculNombreDepartementByEntreprise(0));
+		assertNotEquals(-1, entrepriseServiceImpl.calculNombreDepartementByEntreprise(null));
 	}
 
 }
