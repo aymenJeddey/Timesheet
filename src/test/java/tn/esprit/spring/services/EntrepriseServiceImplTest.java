@@ -10,6 +10,7 @@ public class EntrepriseServiceImplTest {
 
 	@Test
 	public void testCalculNombreDepartement() {
+		//test
 		assertNotEquals(-1, entrepriseServiceImpl.calculNombreDepartementByEntreprise(null));
 	}
 
