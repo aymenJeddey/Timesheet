@@ -1,14 +1,11 @@
 package tn.esprit.spring.services;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
 
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 
 public class EmployeServiceImplTest {
-	
-	
+
 	EmployeServiceImpl iemployeservice = new EmployeServiceImpl();
 
 	@Test
