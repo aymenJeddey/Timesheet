@@ -150,4 +150,19 @@ public class EmployeServiceImpl implements IEmployeService {
 				return (List<Employe>) employeRepository.findAll();
 	}
 
+	@Override
+	public List<Employe> getListEmployesWithoutTimesheet() {
+		// TODO Auto-generated method stub
+		List<Timesheet> listAllTimesheet = (List<Timesheet>) timesheetRepository.findAll();
+		List<Employe> listAllEmployee  = (List<Employe>) employeRepository.findAll();
+		List<Employe> listEmployeWithoutTimesheet  = new ArrayList<>();
+		for(Employe emp:listAllEmployee) {
+			for(Timesheet tms:listAllTimesheet) {
+				if(tms.getEmploye().getId() != emp.getId())
+					listEmployeWithoutTimesheet.add(emp);
+			}
+		}
+		return listEmployeWithoutTimesheet;
+	}
+
 }
