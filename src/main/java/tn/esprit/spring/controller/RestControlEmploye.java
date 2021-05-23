@@ -3,6 +3,7 @@ package tn.esprit.spring.controller;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -36,6 +37,8 @@ public class RestControlEmploye {
 	IEntrepriseService ientrepriseservice;
 	@Autowired
 	ITimesheetService itimesheetservice;
+	
+	private static final Logger logger = Logger.getLogger(RestControlEmploye.class);
 
 	
 	// http://localhost:8081/SpringMVC/servlet/ajouterEmployer
@@ -45,6 +48,7 @@ public class RestControlEmploye {
 	@ResponseBody
 	public Employe ajouterEmploye(@RequestBody Employe employe)
 	{
+		logger.info("---- ajouterEmploye Méthode ---");
 		iemployeservice.ajouterEmploye(employe);
 		return employe;
 	}

@@ -4,14 +4,16 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class EmployeServiceImplTest {
 	
-	EmployeServiceImpl employeServiceImpl = new EmployeServiceImpl();
+	
+	EmployeServiceImpl iemployeservice = new EmployeServiceImpl();
 
 	@Test
 	public void testEmployeWithoutTimesheet() {
-	assertEquals(0, employeServiceImpl.getListEmployesWithoutTimesheet().size());
+		assertEquals(0, iemployeservice.getListEmployesWithoutTimesheet().size());
 	}
 
 }
