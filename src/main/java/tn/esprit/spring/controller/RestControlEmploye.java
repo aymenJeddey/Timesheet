@@ -185,7 +185,7 @@ public class RestControlEmploye {
 		return iemployeservice.getAllEmployes();
 	}
 	
-	// URL : http://localhost:8081/SpringMVC/servlet/getAllEmployes
+	// URL : http://localhost:8081/SpringMVC/servlet/getListEmployesWithoutTimesheet
 	@GetMapping(value = "/getListEmployesWithoutTimesheet") 
  	@ResponseBody
 	public List<Employe> getListEmployesWithoutTimesheet() {
